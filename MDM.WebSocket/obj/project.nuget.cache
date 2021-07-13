@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NBFpb37Gohms6mx6i8dS+VMLmbvt9j5TQ/jO9kp79qGSM+d3pzYxqZhnehXY3Hle+/wQC4FqbW7qgsctS+QyXQ==",
+  "dgSpecHash": "n6AVAsdYUxjYE0Jt1gDMXrNf5bL+0d590aN+mNNKWr8iTHuvRZCkrpoPYaOPtd+h/ri2sTrdPoMayYn59VIVgw==",
   "success": true,
-  "projectFilePath": "D:\\Works\\MDM.WebSocket\\MDM.WebSocket.csproj",
+  "projectFilePath": "D:\\Demo\\mdmwebsocket\\MDM.WebSocket\\MDM.WebSocket.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore\\2.2.0\\microsoft.aspnetcore.2.2.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",

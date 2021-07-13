@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Works\\MDM.WebSocket\\MDM.WebSocket.csproj": {}
+    "D:\\Demo\\mdmwebsocket\\MDM.WebSocket\\MDM.WebSocket.csproj": {}
   },
   "projects": {
-    "D:\\Works\\MDM.WebSocket\\MDM.WebSocket.csproj": {
+    "D:\\Demo\\mdmwebsocket\\MDM.WebSocket\\MDM.WebSocket.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Works\\MDM.WebSocket\\MDM.WebSocket.csproj",
+        "projectUniqueName": "D:\\Demo\\mdmwebsocket\\MDM.WebSocket\\MDM.WebSocket.csproj",
         "projectName": "MDM.WebSocket",
-        "projectPath": "D:\\Works\\MDM.WebSocket\\MDM.WebSocket.csproj",
+        "projectPath": "D:\\Demo\\mdmwebsocket\\MDM.WebSocket\\MDM.WebSocket.csproj",
         "packagesPath": "C:\\Users\\zhao.zhilin\\.nuget\\packages\\",
-        "outputPath": "D:\\Works\\MDM.WebSocket\\obj\\",
+        "outputPath": "D:\\Demo\\mdmwebsocket\\MDM.WebSocket\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
