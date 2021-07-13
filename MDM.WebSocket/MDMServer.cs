@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Options;
 using SuperSocket;
 using SuperSocket.Channel;
-using SuperSocket.ProtoBase;
 using SuperSocket.Server;
 using SuperSocket.WebSocket;
 using SuperSocket.WebSocket.Server;
@@ -12,19 +11,19 @@ using System.Timers;
 
 namespace MDM.WebSocket
 {
-    public class CmppServer : SuperSocketService<WebSocketPackage>
+    public class MDMServer : SuperSocketService<WebSocketPackage>
     {
         private Timer requestTimer = null;
         private ILogger _logger;
-        public CmppServer(IServiceProvider serviceProvider, IOptions<ServerOptions> serverOptions, ILogger<CmppServer> logger)
+        public MDMServer(IServiceProvider serviceProvider, IOptions<ServerOptions> serverOptions, ILogger<MDMServer> logger)
          : base(serviceProvider, serverOptions)
         {
             _logger = logger;
-            double sendInterval = 6000;
-            requestTimer = new Timer(sendInterval);
-            requestTimer.Elapsed += RequestTimer_Elapsed;
-            requestTimer.Enabled = true;
-            requestTimer.Start();
+            //double sendInterval = 6000;
+            //requestTimer = new Timer(sendInterval);
+            //requestTimer.Elapsed += RequestTimer_Elapsed;
+            //requestTimer.Enabled = true;
+            //requestTimer.Start();
         }
 
         private void RequestTimer_Elapsed(object sender, ElapsedEventArgs e)
@@ -38,12 +37,21 @@ namespace MDM.WebSocket
                 var ts = DateTime.Now - session.LastActiveTime;
                 if (ts.TotalSeconds < 60)
                     continue;
-                
             }
         }
 
         protected override async ValueTask OnSessionConnectedAsync(IAppSession session)
         {
+            var mdmSession = (MDMSession)session;
+            var path = mdmSession.Path;
+            var deviceId = !string.IsNullOrWhiteSpace(path) && path.Length > 1 ? path.Substring(1) : string.Empty;
+            //验证deviceId;
+            if (deviceId == "111")
+            {
+                await session.CloseAsync(SuperSocket.Channel.CloseReason.ApplicationError);
+                return;
+            }
+            mdmSession.DeviceId = deviceId;
             // do something right after the sesssion is connected
             await base.OnSessionConnectedAsync(session);
         }

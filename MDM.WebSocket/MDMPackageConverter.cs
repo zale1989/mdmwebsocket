@@ -14,15 +14,15 @@ namespace MDM.WebSocket
             try
             {
                 Console.WriteLine("receive message:" + package.Message);
-                var mdmMessgae = JsonConvert.DeserializeObject<MDMMessage>(package.Message);
+                var mdmMessgae = JsonConvert.DeserializeObject<MDMMessageResp>(package.Message);
                 var pack = new MDMPackageInfo();
-                pack.Key = mdmMessgae.OperationType;
-                pack.MessageData = mdmMessgae;
+                pack.Key = "Resp";
+                pack.MessageResp = mdmMessgae;
                 return pack;
             }
             catch (Exception ex)
             {
-                return new MDMPackageInfo { Key = "Unknown", MessageData = new MDMMessage { Content = package.Message } };
+                return new MDMPackageInfo { Key = "Unknown", MessageResp = new MDMMessageResp {  RespContent = package.Message } };
             }
 
         }

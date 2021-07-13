@@ -30,14 +30,16 @@ namespace MDM.WebSocket
                     .UseStartup<Startup>();
                 })
                 .AsMultipleServerHostBuilder()
-                .AddWebSocketServer<CmppServer>(ss =>
+                .AddWebSocketServer<MDMServer>(ss =>
                 {
                     ss.UseCommand<MDMPackageInfo, MDMPackageConverter>(commandOptions =>
                     {
                         // register commands one by one
-                        commandOptions.AddCommand<Connect>();
+                        commandOptions.AddCommand<Resp>();
                         commandOptions.AddCommand<Unknown>();
                     })
+                    .UseHostedService<MDMServer>()
+                    .UseSession<MDMSession>()
                     .UseInProcSessionContainer()
                     .ConfigureAppConfiguration((hostCtx, configApp) =>
                     {
@@ -47,6 +49,7 @@ namespace MDM.WebSocket
                             { "serverOptions:listeners:0:ip", "Any" },
                             { "serverOptions:listeners:0:port", "4040" }
                         });
+
                     });
                 })
                 .ConfigureLogging((hostCtx, loggingBuilder) =>

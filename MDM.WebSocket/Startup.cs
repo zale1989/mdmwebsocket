@@ -25,6 +25,8 @@ namespace MDM.WebSocket
                 options.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss";
                 options.SerializerSettings.NullValueHandling = NullValueHandling.Include;
             });
+
+            services.AddSingleton<MDMServer>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -6,6 +6,6 @@ namespace MDM.WebSocket
     {
         public string Key { get; set; }
 
-        public MDMMessage MessageData { get; set; }
+        public MDMMessageResp MessageResp { get; set; }
     }
 }

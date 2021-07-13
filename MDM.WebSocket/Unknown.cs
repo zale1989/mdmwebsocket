@@ -14,9 +14,9 @@ namespace MDM.WebSocket
         {
             var resp = new MDMMessageResp
             {
-                MessageId = package.MessageData.MessageId,
+                MessageId = package.MessageResp.MessageId,
                 IsSuccess = false,
-                RespContent = "unknown message:" + package.MessageData.Content
+                RespContent = "unknown message:" + package.MessageResp.RespContent
             };
             await session.SendAsync(resp.ToString());
         }
